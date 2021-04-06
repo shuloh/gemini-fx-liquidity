@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/gemini-fx-liquidity/static/css/main.deadadf0.chunk.css",
-    "main.js": "/gemini-fx-liquidity/static/js/main.ba23551c.chunk.js",
-    "main.js.map": "/gemini-fx-liquidity/static/js/main.ba23551c.chunk.js.map",
+    "main.js": "/gemini-fx-liquidity/static/js/main.e7c07f74.chunk.js",
+    "main.js.map": "/gemini-fx-liquidity/static/js/main.e7c07f74.chunk.js.map",
     "runtime-main.js": "/gemini-fx-liquidity/static/js/runtime-main.4207cb65.js",
     "runtime-main.js.map": "/gemini-fx-liquidity/static/js/runtime-main.4207cb65.js.map",
-    "static/js/2.ede5c329.chunk.js": "/gemini-fx-liquidity/static/js/2.ede5c329.chunk.js",
-    "static/js/2.ede5c329.chunk.js.map": "/gemini-fx-liquidity/static/js/2.ede5c329.chunk.js.map",
+    "static/js/2.55a9410a.chunk.js": "/gemini-fx-liquidity/static/js/2.55a9410a.chunk.js",
+    "static/js/2.55a9410a.chunk.js.map": "/gemini-fx-liquidity/static/js/2.55a9410a.chunk.js.map",
     "index.html": "/gemini-fx-liquidity/index.html",
     "static/css/main.deadadf0.chunk.css.map": "/gemini-fx-liquidity/static/css/main.deadadf0.chunk.css.map",
-    "static/js/2.ede5c329.chunk.js.LICENSE.txt": "/gemini-fx-liquidity/static/js/2.ede5c329.chunk.js.LICENSE.txt",
+    "static/js/2.55a9410a.chunk.js.LICENSE.txt": "/gemini-fx-liquidity/static/js/2.55a9410a.chunk.js.LICENSE.txt",
     "static/js/wsworker.62bef21c.worker.js": "/gemini-fx-liquidity/static/js/wsworker.62bef21c.worker.js",
     "static/js/wsworker.62bef21c.worker.js.map": "/gemini-fx-liquidity/static/js/wsworker.62bef21c.worker.js.map"
   },
   "entrypoints": [
     "static/js/runtime-main.4207cb65.js",
-    "static/js/2.ede5c329.chunk.js",
+    "static/js/2.55a9410a.chunk.js",
     "static/css/main.deadadf0.chunk.css",
-    "static/js/main.ba23551c.chunk.js"
+    "static/js/main.e7c07f74.chunk.js"
   ]
 }
