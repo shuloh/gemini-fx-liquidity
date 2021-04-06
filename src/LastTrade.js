@@ -6,28 +6,28 @@ function LastTrade(props) {
     return (
         <React.Fragment>
             {props.trade && (
-                <Grid container alignItems="baseline" spacing={1} wrap="nowrap">
-                    <Grid item sm={3}>
+                <Grid container alignItems="baseline" spacing={1}>
+                    <Grid item xs={3}>
                         <Typography color="textSecondary" align="left">
                             {props.trade.symbol}
                         </Typography>
                     </Grid>
 
-                    <Grid item sm={3}>
+                    <Grid item xs={3}>
                         <Typography noWrap style={{ color: props.trade.color }}>
                             {props.trade.price.toLocaleString(undefined, {
                                 minimumFractionDigits: 2,
                             })}
                         </Typography>
                     </Grid>
-                    <Grid item sm={3}>
+                    <Grid item xs={3}>
                         <Typography noWrap>
                             {props.trade.qty.toLocaleString(undefined, {
                                 minimumFractionDigits: 8,
                             })}
                         </Typography>
                     </Grid>
-                    <Grid item sm={3} zeroMinWidth>
+                    <Grid item xs={3} zeroMinWidth>
                         <Typography noWrap color="textSecondary">
                             <ReactTimeAgo
                                 date={props.trade.date}

@@ -18,7 +18,7 @@ function Liquidity(props) {
     );
 
     const liquidityTable = props.liquidity.map((o) => (
-        <Grid item sm={12} key={o.symbol}>
+        <Grid item xs={12} key={o.symbol}>
             <Table>
                 <TableHead>
                     <TableRow>
@@ -78,7 +78,6 @@ function Liquidity(props) {
                     <TableRow>
                         <TableCell>Best Bid/Ask</TableCell>
                         <TableCell align="right">
-                            {console.log()}
                             {o.toBuy.bestPrice.toLocaleString(undefined, {
                                 minimumFractionDigits: 2,
                             })}
@@ -109,10 +108,10 @@ function Liquidity(props) {
     return (
         <React.Fragment>
             <Grid container alignItems="baseline" spacing={3} justify="center">
-                <Grid item sm={12}>
+                <Grid item xs={12}>
                     <Typography>Liquidity checker</Typography>
                 </Grid>
-                <Grid item sm={12}>
+                <Grid item xs={12}>
                     <form
                         noValidate
                         autoComplete="off"

@@ -60,7 +60,7 @@ function App() {
     return (
         <Box p={2}>
             <Container maxWidth="sm" className="App">
-                <Grid container justify="flex-start" alignItems="baseline">
+                <Grid container justify="center" alignItems="baseline">
                     <Grid item xs={12}>
                         <Button
                             color="primary"
@@ -83,24 +83,25 @@ function App() {
                                 <Grid
                                     container
                                     justify="flex-start"
+                                    alignItems="baseline"
                                     spacing={1}
                                 >
-                                    <Grid item sm={12}>
+                                    <Grid item xs={12}>
                                         <Typography align="center">
                                             Last Trade
                                         </Typography>
                                     </Grid>
-                                    <Grid item sm={12}>
+                                    <Grid item xs={12}>
                                         <LastTrade
                                             trade={btcusdTrade}
                                         ></LastTrade>
                                     </Grid>
-                                    <Grid item sm={12}>
+                                    <Grid item xs={12}>
                                         <LastTrade
                                             trade={btcsgdTrade}
                                         ></LastTrade>
                                     </Grid>
-                                    <Grid item sm={6}>
+                                    <Grid item xs={6}>
                                         <Typography
                                             align="left"
                                             color="textSecondary"
@@ -108,7 +109,7 @@ function App() {
                                             USD/SGD implied FX:
                                         </Typography>
                                     </Grid>
-                                    <Grid item sm={6}>
+                                    <Grid item>
                                         <Typography
                                             align="left"
                                             color="primary"
