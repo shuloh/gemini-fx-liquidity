@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/gemini-fx-liquidity/static/css/main.deadadf0.chunk.css",
+    "main.js": "/gemini-fx-liquidity/static/js/main.81d2f4aa.chunk.js",
+    "main.js.map": "/gemini-fx-liquidity/static/js/main.81d2f4aa.chunk.js.map",
+    "runtime-main.js": "/gemini-fx-liquidity/static/js/runtime-main.4207cb65.js",
+    "runtime-main.js.map": "/gemini-fx-liquidity/static/js/runtime-main.4207cb65.js.map",
+    "static/js/2.2dffa3dd.chunk.js": "/gemini-fx-liquidity/static/js/2.2dffa3dd.chunk.js",
+    "static/js/2.2dffa3dd.chunk.js.map": "/gemini-fx-liquidity/static/js/2.2dffa3dd.chunk.js.map",
+    "index.html": "/gemini-fx-liquidity/index.html",
+    "static/css/main.deadadf0.chunk.css.map": "/gemini-fx-liquidity/static/css/main.deadadf0.chunk.css.map",
+    "static/js/2.2dffa3dd.chunk.js.LICENSE.txt": "/gemini-fx-liquidity/static/js/2.2dffa3dd.chunk.js.LICENSE.txt",
+    "static/js/wsworker.b5361cde.worker.js": "/gemini-fx-liquidity/static/js/wsworker.b5361cde.worker.js",
+    "static/js/wsworker.b5361cde.worker.js.map": "/gemini-fx-liquidity/static/js/wsworker.b5361cde.worker.js.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4207cb65.js",
+    "static/js/2.2dffa3dd.chunk.js",
+    "static/css/main.deadadf0.chunk.css",
+    "static/js/main.81d2f4aa.chunk.js"
+  ]
+}
