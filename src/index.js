@@ -5,13 +5,11 @@ import App from "./App";
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en";
 import { createMuiTheme, ThemeProvider, CssBaseline } from "@material-ui/core";
-import { cyan, red } from "@material-ui/core/colors";
+import { cyan } from "@material-ui/core/colors";
 const theme = createMuiTheme({
     palette: {
         type: "dark",
         primary: cyan,
-        secondary: cyan,
-        red: red,
     },
 });
 TimeAgo.addDefaultLocale(en);

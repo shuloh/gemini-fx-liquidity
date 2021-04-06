@@ -1,10 +1,6 @@
-import { Grid, Typography, TextField } from "@material-ui/core";
+import { Grid, Typography, TextField, Divider, Box } from "@material-ui/core";
 import React, { useState, useRef, useEffect } from "react";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
+import { cyan } from "@material-ui/core/colors";
 function Liquidity(props) {
     const [valBtcInput, setBtcInput] = useState(1);
     const [delay, setDelay] = useState(100);
@@ -18,98 +14,241 @@ function Liquidity(props) {
     );
 
     const liquidityTable = props.liquidity.map((o) => (
-        <Grid item xs={12} key={o.symbol}>
-            <Table>
-                <TableHead>
-                    <TableRow>
-                        <TableCell>
-                            <Typography color="primary">{o.symbol}</Typography>
-                        </TableCell>
-                        <TableCell align="right">Market Buy</TableCell>
-                        <TableCell align="right">Market Sell</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    <TableRow>
-                        <TableCell>Available Qty</TableCell>
-                        <TableCell align="right">
+        <Grid
+            container
+            direction="column"
+            justify="flex-start"
+            alignItems="stretch"
+            spacing={0}
+            key={o.symbol}
+        >
+            <Grid item xs={12}>
+                <Box my={2}></Box>
+                <Divider />
+            </Grid>
+            <Grid item xs={12}>
+                <Grid
+                    container
+                    justify="flex-start"
+                    alignItems="center"
+                    wrap="nowrap"
+                    spacing={1}
+                >
+                    <Grid item xs={4}>
+                        <Typography color="primary" align="left" noWrap>
+                            {o.symbol}
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={4}>
+                        <Typography color="textSecondary" align="right" noWrap>
+                            Market Buy
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={4}>
+                        <Typography color="textSecondary" align="right" noWrap>
+                            Market Sell
+                        </Typography>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid item xs={12}>
+                <Divider />
+            </Grid>
+            <Grid item xs={12}>
+                <Grid
+                    container
+                    justify="flex-start"
+                    alignItems="center"
+                    wrap="nowrap"
+                    spacing={1}
+                >
+                    <Grid item xs={4}>
+                        <Typography color="textSecondary" align="left" noWrap>
+                            Available Liquidity
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={4}>
+                        <Typography
+                            color={
+                                o.toBuy.canExecute < valBtcInput
+                                    ? "error"
+                                    : "textPrimary"
+                            }
+                            align="right"
+                            noWrap
+                        >
                             {o.toBuy.canExecute.toLocaleString(undefined, {
                                 maximumFractionDigits: 8,
                                 minimumFractionDigits: 2,
                             })}
-                        </TableCell>
-                        <TableCell align="right">
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={4}>
+                        <Typography
+                            color={
+                                o.toSell.canExecute < valBtcInput
+                                    ? "error"
+                                    : "textPrimary"
+                            }
+                            align="right"
+                            noWrap
+                        >
                             {o.toSell.canExecute.toLocaleString(undefined, {
                                 maximumFractionDigits: 8,
                                 minimumFractionDigits: 2,
                             })}
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>VWAP (average price)</TableCell>
-                        <TableCell align="right">
+                        </Typography>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid item xs={12}>
+                <Grid
+                    container
+                    justify="flex-start"
+                    alignItems="baseline"
+                    wrap="nowrap"
+                >
+                    <Grid item xs={4}>
+                        <Typography
+                            style={{ color: cyan[200] }}
+                            align="left"
+                            noWrap
+                        >
+                            VWAP
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={4}>
+                        <Typography
+                            style={{ color: cyan[200] }}
+                            align="right"
+                            noWrap
+                        >
                             {o.toBuy.vwap.toLocaleString(undefined, {
                                 maximumFractionDigits: 2,
                                 minimumFractionDigits: 2,
                             })}
-                        </TableCell>
-                        <TableCell align="right">
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={4}>
+                        <Typography
+                            style={{ color: cyan[200] }}
+                            align="right"
+                            noWrap
+                        >
                             {o.toSell.vwap.toLocaleString(undefined, {
                                 maximumFractionDigits: 2,
                                 minimumFractionDigits: 2,
                             })}
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>Transaction Value</TableCell>
-                        <TableCell align="right">
+                        </Typography>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid item xs={12}>
+                <Grid
+                    container
+                    justify="flex-start"
+                    alignItems="baseline"
+                    wrap="nowrap"
+                >
+                    <Grid item xs={4}>
+                        <Typography color="textSecondary" align="left" noWrap>
+                            Transaction Amt. {o.symbol.slice(-3)}
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={4}>
+                        <Typography align="right" noWrap>
                             {o.toBuy.transactionVal.toLocaleString(undefined, {
                                 minimumFractionDigits: 2,
                                 maximumFractionDigits: 2,
                             })}
-                        </TableCell>
-                        <TableCell align="right">
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={4}>
+                        <Typography align="right" noWrap>
                             {o.toSell.transactionVal.toLocaleString(undefined, {
-                                maximumFractionDigits: 2,
                                 minimumFractionDigits: 2,
+                                maximumFractionDigits: 2,
                             })}
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>Best Bid/Ask</TableCell>
-                        <TableCell align="right">
+                        </Typography>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid item xs={12}>
+                <Grid
+                    container
+                    justify="flex-start"
+                    alignItems="baseline"
+                    wrap="nowrap"
+                >
+                    <Grid item xs={4}>
+                        <Typography color="textSecondary" align="left" noWrap>
+                            Best Price
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={4}>
+                        <Typography align="right" noWrap>
                             {o.toBuy.bestPrice.toLocaleString(undefined, {
                                 minimumFractionDigits: 2,
+                                maximumFractionDigits: 2,
                             })}
-                        </TableCell>
-                        <TableCell align="right">
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={4}>
+                        <Typography align="right" noWrap>
                             {o.toSell.bestPrice.toLocaleString(undefined, {
                                 minimumFractionDigits: 2,
+                                maximumFractionDigits: 2,
                             })}
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>Worst Bid/Ask</TableCell>
-                        <TableCell align="right">
+                        </Typography>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid item xs={12}>
+                <Grid
+                    container
+                    justify="flex-start"
+                    alignItems="baseline"
+                    wrap="nowrap"
+                >
+                    <Grid item xs={4}>
+                        <Typography color="textSecondary" align="left" noWrap>
+                            Worst Price
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={4}>
+                        <Typography align="right" noWrap>
                             {o.toBuy.worstPrice.toLocaleString(undefined, {
                                 minimumFractionDigits: 2,
+                                maximumFractionDigits: 2,
                             })}
-                        </TableCell>
-                        <TableCell align="right">
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={4}>
+                        <Typography align="right" noWrap>
                             {o.toSell.worstPrice.toLocaleString(undefined, {
                                 minimumFractionDigits: 2,
+                                maximumFractionDigits: 2,
                             })}
-                        </TableCell>
-                    </TableRow>
-                </TableBody>
-            </Table>
+                        </Typography>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid item xs={12}>
+                <Divider />
+            </Grid>
         </Grid>
     ));
     return (
         <React.Fragment>
-            <Grid container alignItems="baseline" spacing={3} justify="center">
+            <Grid
+                container
+                direction="column"
+                justify="flex-start"
+                alignItems="stretch"
+                spacing={2}
+            >
                 <Grid item xs={12}>
-                    <Typography>Liquidity checker</Typography>
+                    <Typography>Liquidity Price checker</Typography>
                 </Grid>
                 <Grid item xs={12}>
                     <form
@@ -139,7 +278,9 @@ function Liquidity(props) {
                         />
                     </form>
                 </Grid>
-                {liquidityTable}
+                <Grid item xs={12}>
+                    {liquidityTable}
+                </Grid>
             </Grid>
         </React.Fragment>
     );

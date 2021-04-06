@@ -166,7 +166,7 @@ function calculateGeminiLiq(btc) {
             const _canExecute = btc - _remainingQty;
             s.toSell.canExecute = _canExecute;
             s.toSell.remainingQty = _remainingQty;
-            s.toSell.vwap = _totalReturn / btc;
+            s.toSell.vwap = _totalReturn / _canExecute;
             s.toSell.transactionVal = _totalReturn;
         }
         //tobuy
@@ -188,7 +188,7 @@ function calculateGeminiLiq(btc) {
             const _canExecute = btc - _remainingQty;
             s.toBuy.canExecute = _canExecute;
             s.toBuy.remainingQty = _remainingQty;
-            s.toBuy.vwap = _totalCost / btc;
+            s.toBuy.vwap = _totalCost / _canExecute;
             s.toBuy.transactionVal = _totalCost;
         }
         result.push(s);

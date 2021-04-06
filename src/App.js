@@ -53,14 +53,20 @@ function App() {
                     ? theme.palette.success.dark
                     : Number(action.price) < oldprice
                     ? theme.palette.error.dark
-                    : "textPrimary",
+                    : theme.palette.text,
         };
         return r;
     }
     return (
-        <Box p={2}>
-            <Container maxWidth="sm" className="App">
-                <Grid container justify="center" alignItems="baseline">
+        <Container maxWidth="sm" className="App">
+            <Box p={2}>
+                <Grid
+                    container
+                    direction="column"
+                    justify="flex-start"
+                    alignItems="stretch"
+                    spacing={2}
+                >
                     <Grid item xs={12}>
                         <Button
                             color="primary"
@@ -75,70 +81,90 @@ function App() {
                             Connect Gemini
                         </Button>
                     </Grid>
+                    {initialized && (
+                        <React.Fragment>
+                            <Grid item xs={12}>
+                                <Paper elevation={4}>
+                                    <Box p={2}>
+                                        <Grid
+                                            container
+                                            justify="flex-start"
+                                            alignItems="baseline"
+                                            spacing={1}
+                                        >
+                                            <Grid item xs={12}>
+                                                <Typography align="center">
+                                                    Last Trade
+                                                </Typography>
+                                            </Grid>
+                                            <Grid item xs={12}>
+                                                <LastTrade
+                                                    trade={btcusdTrade}
+                                                ></LastTrade>
+                                            </Grid>
+                                            <Grid item xs={12}>
+                                                <LastTrade
+                                                    trade={btcsgdTrade}
+                                                ></LastTrade>
+                                            </Grid>
+                                            <Grid item xs={12}>
+                                                <Grid
+                                                    container
+                                                    justify="flex-start"
+                                                    alignItems="baseline"
+                                                    spacing={1}
+                                                    wrap="nowrap"
+                                                >
+                                                    <Grid item xs={6}>
+                                                        <Typography color="textSecondary">
+                                                            USD/SGD implied FX:
+                                                        </Typography>
+                                                    </Grid>
+                                                    <Grid
+                                                        item
+                                                        xs={6}
+                                                        zeroMinWidth
+                                                    >
+                                                        <Typography
+                                                            color="primary"
+                                                            noWrap
+                                                        >
+                                                            {btcsgdTrade?.price &&
+                                                                btcusdTrade?.price &&
+                                                                (
+                                                                    btcsgdTrade.price /
+                                                                    btcusdTrade.price
+                                                                ).toLocaleString(
+                                                                    undefined,
+                                                                    {
+                                                                        minimumFractionDigits: 8,
+                                                                    }
+                                                                )}
+                                                        </Typography>
+                                                    </Grid>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
+                                    </Box>
+                                </Paper>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Paper elevation={4}>
+                                    <Box p={2}>
+                                        <Liquidity
+                                            liquidity={liquidity}
+                                            calculateLiquidity={
+                                                calculateLiquidity
+                                            }
+                                        />
+                                    </Box>
+                                </Paper>
+                            </Grid>
+                        </React.Fragment>
+                    )}
                 </Grid>
-                {initialized && (
-                    <React.Fragment>
-                        <Paper elevation={4}>
-                            <Box p={1} m={2}>
-                                <Grid
-                                    container
-                                    justify="flex-start"
-                                    alignItems="baseline"
-                                    spacing={1}
-                                >
-                                    <Grid item xs={12}>
-                                        <Typography align="center">
-                                            Last Trade
-                                        </Typography>
-                                    </Grid>
-                                    <Grid item xs={12}>
-                                        <LastTrade
-                                            trade={btcusdTrade}
-                                        ></LastTrade>
-                                    </Grid>
-                                    <Grid item xs={12}>
-                                        <LastTrade
-                                            trade={btcsgdTrade}
-                                        ></LastTrade>
-                                    </Grid>
-                                    <Grid item xs={6}>
-                                        <Typography
-                                            align="left"
-                                            color="textSecondary"
-                                        >
-                                            USD/SGD implied FX:
-                                        </Typography>
-                                    </Grid>
-                                    <Grid item>
-                                        <Typography
-                                            align="left"
-                                            color="primary"
-                                        >
-                                            {btcsgdTrade?.price &&
-                                                btcusdTrade?.price &&
-                                                (
-                                                    btcsgdTrade.price /
-                                                    btcusdTrade.price
-                                                ).toLocaleString(undefined, {
-                                                    minimumFractionDigits: 8,
-                                                })}
-                                        </Typography>
-                                    </Grid>
-                                </Grid>
-                            </Box>
-                        </Paper>
-                        <Paper elevation={4}>
-                            <Box p={2} m={2}>
-                                <Liquidity
-                                    liquidity={liquidity}
-                                    calculateLiquidity={calculateLiquidity}
-                                />
-                            </Box>
-                        </Paper>
-                    </React.Fragment>
-                )}
-            </Container>
-        </Box>
+            </Box>
+        </Container>
     );
 }
 
